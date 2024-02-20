@@ -17,6 +17,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
   String weather = "";
   int temp = -1;
   int timezone = -1;
+  String token = '';
 
   @override
   void initState() {
@@ -25,11 +26,12 @@ class _WeatherScreenState extends State<WeatherScreen> {
   }
 
   void updateData(dynamic weatherData) {
-    cityName = weatherData['name'];
-    timezone = weatherData['timezone'];
-    // Map<String, dynamic> aaa = weatherData['weather'][0];
-    weather = weatherData['weather'][0]['main'];
-    temp = weatherData['main']['temp'].round();
+    // cityName = weatherData['name'];
+    // timezone = weatherData['timezone'];
+    // // Map<String, dynamic> aaa = weatherData['weather'][0];
+    // weather = weatherData['weather'][0]['main'];
+    // temp = weatherData['main']['temp'].round();
+    token = weatherData;
   }
 
   @override
@@ -41,22 +43,22 @@ class _WeatherScreenState extends State<WeatherScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                cityName,
+                token,
                 style: TextStyle(fontSize: 30.0),
               ),
               SizedBox(height: 20.0),
               Text(
-                '$temp',
+                token,
                 style: TextStyle(fontSize: 30.0),
               ),
               SizedBox(height: 20.0),
               Text(
-                '$timezone',
+                token,
                 style: TextStyle(fontSize: 30.0),
               ),
               SizedBox(height: 20.0),
               Text(
-                weather,
+                token,
                 style: TextStyle(fontSize: 30.0),
               )
             ],
